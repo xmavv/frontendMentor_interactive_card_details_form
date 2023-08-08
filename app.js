@@ -16,6 +16,17 @@ const inputCvcId = document.getElementById('cvc');
 const infoError = document.querySelectorAll('.error');
 const complete = document.querySelector('complete');
 
+
+
+
+// musisz dodac ze na przycisk jest wyslane jak wszystko dobrze, czyli gdy setsuccess to input jest git, a gdy nie
+// to wtedy jest pusty
+
+//jeszcze to ze gdy sie usunie input number to sie podnosza do gory dane
+
+
+
+
 form.addEventListener('submit', e => {
     e.preventDefault();
 
