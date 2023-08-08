@@ -21,6 +21,7 @@ body {
     height: 100vh;
     background: url(images/bg-main-mobile.png) no-repeat;
     background-size: 100%;
+    background-size: 100% 24rem;
 }
 
 main {
@@ -85,7 +86,6 @@ img {
 }
 
 .card__number {
-    /* display: block; */
     letter-spacing: 0.12rem;
     color: white;
     margin-bottom: 2rem;
@@ -130,7 +130,7 @@ form {
 }
 
 .form__group input:focus {
-    border: 1px solid var(--active-input-border);
+    border: 1px solid purple;
 }
 
 .exp__date__cvc {
@@ -154,7 +154,7 @@ form {
     border: none;
     background-color: var(--very-dark-violet);
     color: white;
-    border-radius: 0.5rem;
+    border-radius: 0.7rem;
     font-size: 1.8rem;
     font-weight: 500;
     cursor: pointer;
@@ -167,10 +167,6 @@ form {
 
 .d__none {
     display: none;
-}
-
-.d__block {
-    display: block;
 }
 
 .complete {
@@ -196,4 +192,99 @@ form {
 .complete p {
     color: var(--dark-grayish-violet);
     margin-bottom: 2rem;
+}
+
+@media (min-width: 1440px) {
+    body {
+        background: url(images/bg-main-desktop.png) no-repeat;
+        background-size: 33.5% 100%;
+    }
+
+    main {
+        max-width: 112rem;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12rem;
+    }
+
+    .card {
+        height: 50rem;
+        gap: 5rem;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .card__back, .card__front {
+        max-width: max-content;
+    }
+
+    .card__front {
+        position: relative;
+        top: 0;
+    }
+
+    .card__back {
+        margin-left: 10rem;
+    }
+
+    .card__back .cvc {
+        font-size: 1.4rem;
+        letter-spacing: 0.14rem;
+        padding-right: 5.8rem;
+    }
+
+    .card__details {
+        padding: 3rem;
+    }
+
+    .card__details img {
+        /* max-content czyli taki jaki jest ten svg */
+        width: max-content;
+        margin-bottom: 5.5rem;
+    }
+
+    .card__number {
+        font-size: 2.5rem;
+        letter-spacing: 0.25rem;
+        margin-bottom: 3rem;
+    }
+
+    .info {
+        font-size: 1.3rem;
+        letter-spacing: 0.14rem;
+    }
+
+    form {
+        padding: 2rem;
+        margin: 0;
+    }
+
+    .form__group {
+        padding-bottom: 1.5rem;
+    }
+
+    .form__group input {
+        padding: 1.2rem 2rem;
+    }
+
+    .btn {
+        padding: 1.5rem;
+    }
+
+    .complete {
+        width: 50%;
+        padding: 0 7rem;
+        margin: 0;
+    }
+    
+    .complete img {
+        margin-bottom: 4rem;
+    }
+
+    .complete h1 {
+        letter-spacing: 0.4rem;
+    }
 }
