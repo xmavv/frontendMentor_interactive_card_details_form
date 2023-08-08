@@ -91,6 +91,10 @@ img {
     margin-bottom: 2rem;
 }
 
+.month__year {
+    display: flex;
+}
+
 .info {
     display: flex;
     justify-content: space-between;
@@ -105,7 +109,7 @@ form {
 }
 
 .form__group {
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
 }
@@ -119,6 +123,7 @@ form {
 }
 
 .form__group input {
+    color: var(--very-dark-violet);
     width: 100%;
     font-size: 1.7rem;
     letter-spacing: 0.03rem;
@@ -192,6 +197,22 @@ form {
 .complete p {
     color: var(--dark-grayish-violet);
     margin-bottom: 2rem;
+}
+
+.error {
+    color: var(--input-errors);
+    font-size: 1.15rem;
+    margin-top: 1rem;
+}
+
+.error input {
+    border: 1px solid var(--input-errors);
+    color: var(--input-errors);
+}
+
+.success input{
+    border: 1px solid #1eda69;
+    color: #1eda69;
 }
 
 @media (min-width: 1440px) {
