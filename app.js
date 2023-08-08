@@ -1,5 +1,3 @@
-//live update card
-
 const cardNumber = document.querySelector('.card__number');
 const cardName = document.querySelector('.card__name');
 const cardMonth = document.querySelector('.card__month');
@@ -14,7 +12,7 @@ const inputYearId = document.getElementById('year');
 const inputCvcId = document.getElementById('cvc');
 
 const infoError = document.querySelectorAll('.error');
-const complete = document.querySelector('complete');
+const complete = document.querySelector('.complete');
 
 
 
@@ -24,14 +22,6 @@ const complete = document.querySelector('complete');
 
 //jeszcze to ze gdy sie usunie input number to sie podnosza do gory dane
 
-
-
-
-form.addEventListener('submit', e => {
-    e.preventDefault();
-
-    validateInputs();
-});
 
 const setError = (index, message) => {
     infoError[index].innerText = message;
@@ -49,48 +39,84 @@ const setSuccess = index => {
     parentE.classList.add('success');
 };
 
-const validateInputs = () => {
-    const inputNameValue = inputNameId.value.trim();
-    const inputNumberValue = inputNumberId.value.trim();
-    const inputMonthValue = inputMonthId.value.trim();
-    const inputCvcValue = inputCvcId.value.trim();
+let nameV;
+let numberV;
+let monthV;
+let yearV;
+let cvcV;
 
-    if (inputNameValue === '') {
+const validateInputs = () => {
+    const inputName = inputNameId.value.trim();
+    const inputNumber = inputNumberId.value.trim();
+    const inputMonth = inputMonthId.value.trim();
+    const inputYear = inputYearId.value.trim();
+    const inputCvc = inputCvcId.value.trim();
+
+    const date = new Date();
+
+    if (inputName === '') {
         setError(0, "Can't be blank");
-    } else if (!inputNameValue.match(/[a-zA-Z]+/gu)) {
+    } else if (!inputName.match(/[a-zA-Z]+/gu)) {
         setError(0, "Wrong format, letters only");
     } else {
         setSuccess(0);
+        nameV = inputName;
     }
 
-    if (inputNumberValue === '') {
+    if (inputNumber === '') {
         setError(1, "Can't be blank");
-    } else if (inputNumberValue.match(/[a-zA-Z]+/gu)) {
+    } else if (inputNumber.match(/[a-zA-Z]+/gu)) {
         setError(1, "Wrong format, numbers only");
-    } else if (inputNumberValue.length < 16) {
+    } else if (inputNumber.length < 16) {
         setError(1, "Must be 16 characters");
     } else {
         setSuccess(1);
+        numberV = inputNumber;
     }
 
-    if (inputMonthValue === '') {
+    if (inputMonth === '') {
         setError(2, "Can't be blank");
-    } else if (inputMonthValue.match(/[a-zA-Z]+/gu)) {
+    } else if (inputMonth.match(/[a-zA-Z]+/gu)) {
         setError(2, "Wrong format, numbers only");
-    } else if (inputMonthValue.length < 2) {
+    } else if (inputMonth.length < 2) {
         setError(2, "Must be 2 characters");
+    } else if (+inputMonth > 12) {
+        setError(2, "Month must be less than 12");
+    } else if (inputYear === '') {
+        setError(2, "Can't be blank");
+    } else if (inputYear.match(/[a-zA-Z]+/gu)) {
+        setError(2, "Wrong format, numbers only");
+    } else if (inputYear.length < 2) {
+        setError(2, "Must be 2 characters");
+    } else if (+inputYear < date.getFullYear) {
+        setError(2, "Can't be less that current year");
     } else {
         setSuccess(2);
+        monthV = inputMonth;
     }
 
-    if (inputCvcValue === '') {
+    if (inputYear === '') {
+        setError(2, "Can't be blank");
+    } else if (inputYear.match(/[a-zA-Z]+/gu)) {
+        setError(2, "Wrong format, numbers only");
+    } else if (inputYear.length < 2) {
+        setError(2, "Must be 2 characters");
+    } else if (+inputYear < date.getFullYear) {
+        setError(2, "Can't be less that current year");
+    } else {
+        setSuccess(2);
+        yearV = inputYear;
+    }
+
+    if (inputCvc === '') {
         setError(3, "Can't be blank");
-    } else if (inputCvcValue.match(/[a-zA-Z]+/gu)) {
+    } else if (inputCvc.match(/[a-zA-Z]+/gu)) {
         setError(3, "Wrong format, numbers only");
-    } else if (inputNumberValue.length < 3) {
+    } else if (inputCvc.length < 2) {
         setError(3, "Must be 3 characters");
     } else {
         setSuccess(3);
+        cvcV = inputCvc;
     }
 };
 
@@ -108,6 +134,24 @@ liveInput(inputNumberId, cardNumber);
 liveInput(inputMonthId, cardMonth);
 liveInput(inputYearId, cardYear);
 liveInput(inputCvcId, cardCVC);
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    nameV = '';
+    numberV = '';
+    monthV = '';
+    yearV = '';
+    cvcV = '';
+
+    validateInputs();
+
+    if (nameV && numberV && monthV && yearV && cvcV) {
+        form.classList.add('d__none');
+        complete.classList.remove('d__none');
+        // complete.classList.add('d__block');
+    }
+});
 
 // inputNameId.addEventListener('input', e => {
     // e.preventDefault();
