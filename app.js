@@ -10,18 +10,12 @@ const inputNumberId = document.getElementById('number');
 const inputMonthId = document.getElementById('month');
 const inputYearId = document.getElementById('year');
 const inputCvcId = document.getElementById('cvc');
+const secondBtn = document.getElementById('secondBtn');
 
 const infoError = document.querySelectorAll('.error');
 const complete = document.querySelector('.complete');
-
-
-
-
-// musisz dodac ze na przycisk jest wyslane jak wszystko dobrze, czyli gdy setsuccess to input jest git, a gdy nie
-// to wtedy jest pusty
-
-//jeszcze to ze gdy sie usunie input number to sie podnosza do gory dane
-
+let dateYear = new Date().getFullYear();
+dateYear = String(dateYear).slice(2);
 
 const setError = (index, message) => {
     infoError[index].innerText = message;
@@ -52,8 +46,6 @@ const validateInputs = () => {
     const inputYear = inputYearId.value.trim();
     const inputCvc = inputCvcId.value.trim();
 
-    const date = new Date();
-
     if (inputName === '') {
         setError(0, "Can't be blank");
     } else if (!inputName.match(/[a-zA-Z]+/gu)) {
@@ -80,31 +72,15 @@ const validateInputs = () => {
         setError(2, "Wrong format, numbers only");
     } else if (inputMonth.length < 2) {
         setError(2, "Must be 2 characters");
-    } else if (+inputMonth > 12) {
-        setError(2, "Month must be less than 12");
-    } else if (inputYear === '') {
-        setError(2, "Can't be blank");
-    } else if (inputYear.match(/[a-zA-Z]+/gu)) {
-        setError(2, "Wrong format, numbers only");
     } else if (inputYear.length < 2) {
         setError(2, "Must be 2 characters");
-    } else if (+inputYear < date.getFullYear) {
-        setError(2, "Can't be less that current year");
+    } else if (+inputMonth > 12) {
+        setError(2, "Month must be less than 13");
+    } else if (+inputYear < +dateYear+1) {
+        setError(2, `Year must be greater than ${dateYear}`);
     } else {
         setSuccess(2);
         monthV = inputMonth;
-    }
-
-    if (inputYear === '') {
-        setError(2, "Can't be blank");
-    } else if (inputYear.match(/[a-zA-Z]+/gu)) {
-        setError(2, "Wrong format, numbers only");
-    } else if (inputYear.length < 2) {
-        setError(2, "Must be 2 characters");
-    } else if (+inputYear < date.getFullYear) {
-        setError(2, "Can't be less that current year");
-    } else {
-        setSuccess(2);
         yearV = inputYear;
     }
 
@@ -112,7 +88,7 @@ const validateInputs = () => {
         setError(3, "Can't be blank");
     } else if (inputCvc.match(/[a-zA-Z]+/gu)) {
         setError(3, "Wrong format, numbers only");
-    } else if (inputCvc.length < 2) {
+    } else if (inputCvc.length < 3) {
         setError(3, "Must be 3 characters");
     } else {
         setSuccess(3);
@@ -126,6 +102,18 @@ const liveInput = (input, cardText) => {
     
         const liveInput = e.target.value;
         cardText.textContent = liveInput;
+
+        if (e.target.value === '') {
+            if (input == inputNameId) {
+                cardText.textContent = 'Mateusz Oleksy';
+            } else if (input == inputNumberId) {
+                cardText.textContent = '0000 5555 0000 5555';
+            } else if (input == inputMonthId || input == inputYearId) {
+                cardText.textContent = '05';
+            } else {
+                cardText.textContent = '050';
+            }
+        }
     });
 };
 
@@ -145,12 +133,17 @@ form.addEventListener('submit', e => {
     cvcV = '';
 
     validateInputs();
-
+    
     if (nameV && numberV && monthV && yearV && cvcV) {
         form.classList.add('d__none');
         complete.classList.remove('d__none');
         // complete.classList.add('d__block');
     }
+});
+
+secondBtn.addEventListener('click', () => {
+    // like refresh button
+    location.reload(true);
 });
 
 // inputNameId.addEventListener('input', e => {

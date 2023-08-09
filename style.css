@@ -86,6 +86,7 @@ img {
 }
 
 .card__number {
+    height: 3rem;
     letter-spacing: 0.12rem;
     color: white;
     margin-bottom: 2rem;
@@ -178,10 +179,6 @@ form {
     display: block;
 }
 
-section {
-    width: 50%;
-}
-
 .complete {
     padding: 0 1rem;
     margin-top: 5rem;
@@ -235,7 +232,7 @@ section {
         height: 100vh;
         display: flex;
         align-items: center;
-        gap: 5rem;
+        gap: 10rem;
     }
 
     .card {
@@ -275,6 +272,7 @@ section {
     }
 
     .card__number {
+        height: 4rem;
         font-size: 2.5rem;
         letter-spacing: 0.25rem;
         margin-bottom: 3rem;
