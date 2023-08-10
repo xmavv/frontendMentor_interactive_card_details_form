@@ -1,9 +1,10 @@
 :root {
-    --active-input-border: linear-gradient(to right, blue 50%, orange 50%) 2;
+    --active-input-border: linear-gradient(hsl(249, 99%, 64%),hsl(278, 94%, 30%));
     --input-errors: hsl(0, 100%, 66%);
     --light-grayish-violet: hsl(270, 3%, 87%);
     --dark-grayish-violet: hsl(279, 6%, 55%);
     --very-dark-violet: hsl(278, 68%, 11%);
+    --defValue: rgb(228, 228, 228);
 
     font-size: 10px;
 }
@@ -49,7 +50,7 @@ img {
     width: 100%;
 }
 
-.card__back .cvc {
+.cvc {
     position: absolute;
     top: 0;
     height: 100%;
@@ -58,7 +59,7 @@ img {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    color: white;
+    color: var(--defValue);
     font-size: 0.95rem;
 }
 
@@ -88,7 +89,7 @@ img {
 .card__number {
     height: 3rem;
     letter-spacing: 0.12rem;
-    color: white;
+    color: var(--defValue);
     margin-bottom: 2rem;
 }
 
@@ -100,9 +101,24 @@ img {
     display: flex;
     justify-content: space-between;
     font-size: 1rem;
-    color: white;
     letter-spacing: 0.12rem;
     text-transform: uppercase;
+}
+
+.card__name{
+    color: var(--defValue);
+}
+
+.month__year span {
+    color: var(--defValue);
+}
+
+.card__month{
+    color: var(--defValue);
+}
+
+.card__year{
+    color: var(--defValue);
 }
 
 form {
@@ -130,13 +146,24 @@ form {
     letter-spacing: 0.03rem;
     font-weight: 500;
     outline: none;
-    border: 1px solid var(--light-grayish-violet);
+    border: 2px solid var(--light-grayish-violet);
     border-radius: 0.8rem;
     padding: 1rem 2rem;
+    transition: all 0.2s;
 }
 
 .form__group input:focus {
-    border: 1px solid purple;
+    /* gradient on border */
+    background: linear-gradient(white, white) padding-box, linear-gradient(darkblue, darkorchid) border-box;
+    /* border-radius: 0.8rem;
+    not neccessary, cause border-radius is already defined on the top in .form__group input*/
+    border: 2px solid transparent;
+
+    /* first gradient is "fake" one, (2nd value of background is background-clip) in this case padding-box
+    it means that it cover whole element, without border, second gradient is out gradient,
+    border-box to cover all the element, next the border-radius, unless it's defined earlier
+    and next border property is to unhide out second gradient (cause its under first gradient)
+    we have to set transparent color, to as I said unhide it */
 }
 
 .exp__date__cvc {
@@ -211,13 +238,23 @@ form {
 }
 
 .error input {
-    border: 1px solid var(--input-errors);
+    border: 2px solid var(--input-errors);
     color: var(--input-errors);
 }
 
 .success input{
-    border: 1px solid #1eda69;
+    border: 2px solid #1eda69;
     color: #1eda69;
+}
+
+.info a {
+    text-decoration: none;
+    color: #1eda69;
+    transition: all 0.3s;
+}
+
+.info a:hover {
+    color:hsl(0, 100%, 66%);
 }
 
 @media (min-width: 1440px) {

@@ -20,7 +20,7 @@ dateYear = String(dateYear).slice(2);
 const setError = (index, message) => {
     infoError[index].innerText = message;
 
-    parentE = infoError[index].parentElement;
+    let parentE = infoError[index].parentElement;
     parentE.classList.remove('success');
     parentE.classList.add('error');
 };
@@ -28,7 +28,7 @@ const setError = (index, message) => {
 const setSuccess = index => {
     infoError[index].innerText = '';
 
-    parentE = infoError[index].parentElement;
+    let parentE = infoError[index].parentElement;
     parentE.classList.remove('error');
     parentE.classList.add('success');
 };
@@ -96,16 +96,38 @@ const validateInputs = () => {
     }
 };
 
-const liveInput = (input, cardText) => {
+const changeColor = (input, color) => {
+    if(input == inputNameId) {
+        document.querySelector('.card__name').style.color = color;
+    } else if(input == inputNumberId) {
+        document.querySelector('.card__number').style.color = color;
+    } else if(input == inputMonthId) {
+        document.querySelector('.card__month').style.color = color;
+    } else if(input == inputYearId) {
+        document.querySelector('.card__year').style.color = color;
+    } else {
+        document.querySelector('.cvc').style.color = color;
+    }
+};
+
+const liveInput = (input, cardText, index) => {
     input.addEventListener('input', e => {
         e.preventDefault();
-    
-        const liveInput = e.target.value;
-        cardText.textContent = liveInput;
+        
+        const liveInputV = e.target.value;
+        cardText.textContent = liveInputV;
 
+        changeColor(input, "white");
+        
         if (e.target.value === '') {
+            let parentE = infoError[index].parentElement;
+            parentE.classList.remove('error');
+            parentE.classList.remove('success');
+
+            changeColor(input, "rgb(228, 228, 228)");
+
             if (input == inputNameId) {
-                cardText.textContent = 'Mateusz Oleksy';
+                cardText.innerHTML = '<a href="https://github.com/xmavv" target="_blank">Mateusz Oleksy</a>';
             } else if (input == inputNumberId) {
                 cardText.textContent = '0000 5555 0000 5555';
             } else if (input == inputMonthId || input == inputYearId) {
@@ -114,14 +136,32 @@ const liveInput = (input, cardText) => {
                 cardText.textContent = '050';
             }
         }
+
+        // idk what happens here
+        if (input == inputNumberId) {
+            let formatText = e.target.value;
+            formatText = formatText.substring(0, 19);
+            formatText = formatText.replace(/\s/g, "").replace(new RegExp(`(.{${4}})`, "g"), "$1 ").trim();
+
+            e.target.value = formatText;
+            
+            numberV = e.target.value;
+            cardNumber = numberV;
+
+            if (/\s/.test(input.value)) {
+                let formatText2 = input.value.replace(/\s/g, "");
+
+                input.value = formatText2;
+            }
+        }
     });
 };
 
-liveInput(inputNameId, cardName);
-liveInput(inputNumberId, cardNumber);
-liveInput(inputMonthId, cardMonth);
-liveInput(inputYearId, cardYear);
-liveInput(inputCvcId, cardCVC);
+liveInput(inputNameId, cardName, 0);
+liveInput(inputNumberId, cardNumber, 1);
+liveInput(inputMonthId, cardMonth, 2);
+liveInput(inputYearId, cardYear, 2);
+liveInput(inputCvcId, cardCVC, 3);
 
 form.addEventListener('submit', e => {
     e.preventDefault();

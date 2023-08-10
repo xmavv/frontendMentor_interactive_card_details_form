@@ -1,22 +1,23 @@
-# Frontend Mentor - Interactive card details form solution
+# [Frontend Mentor - Interactive card details form solution](https://interactivecard-detalis-xmavv.netlify.app/)
 
-This is a solution to the [Interactive card details form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Interactive card details form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw)
 
 ## Table of contents
 
 - [Overview](#overview)
-  - [The challenge](#the-challenge)
+  - [The challenge](#the-challenge) 
   - [Screenshot](#screenshot)
-  - [Links](#links)
+  - [Deploying project](#deploying-project)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
+  - [What I added](#what-i-added)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
+### Welcome 😎
+
+Thanks for checking out this front-end challenge!
 
 ## Overview
 
@@ -33,20 +34,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
-
-### Links
-
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+![Screenshoot of the final app](images/Screenshot.png)
 
 ## My process
 
@@ -55,42 +43,30 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- JS form valivadtion 
 
 ### What I learned
 
-moblie first
-live input
-font-size: 10px; i potem latwo sie skaluje
+- Moblie first workflow
+- Live display input on the card
+- I bit of positioning
+- Not a live full validation, but a bit of
+- How to add gradient border on input:focus
+- Responsive web design
 
-### Continued development
+### What I added
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+- Default input is a bit grey right now, when u type in yours, color changes to white
+- I added second version of back-card, just to increase contrast between background and text-cvc (in my opinion default color wasn't that good, feel free to use it!)
+- Success validation
 
 ### Useful resources
 
-- [res1](https://www.youtube.com/watch?v=VB8cil2gyQM&list=PLbKtKAjLO1qzoGxx8CbErG3mW9yI9sbgq&index=3&ab_channel=mrkhd-webDev) - exact tutorial
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [res1](https://www.youtube.com/watch?v=VB8cil2gyQM&list=PLbKtKAjLO1qzoGxx8CbErG3mW9yI9sbgq&index=3&ab_channel=mrkhd-webDev) - helped me with CSS, and JS
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- my github profile - [xmavv](https://github.com/xmavv)
+- my frontend mentor profile - [@xmavv](https://www.frontendmentor.io/profile/xmavv)
+- my behance profile - [mav](https://www.behance.net/mavrgb)
