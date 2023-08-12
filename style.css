@@ -63,6 +63,10 @@ img {
     font-size: 0.95rem;
 }
 
+.i_icon {
+    height: 20px;
+}
+
 .card__front {
     position: absolute;
     top: 10rem;
@@ -129,6 +133,16 @@ form {
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
+}
+
+.form__group div {
+    display: flex;
+}
+
+.form__group div img {
+    margin-left: 5px;
+    height: 15px;
+    cursor: help;
 }
 
 .form__group label {

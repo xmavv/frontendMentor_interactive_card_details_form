@@ -60,6 +60,7 @@ Users should be able to:
 - Default input is a bit grey right now, when u type in yours, color changes to white
 - I added second version of back-card, just to increase contrast between background and text-cvc (in my opinion default color wasn't that good, feel free to use it!)
 - Success validation
+- An (i) icon, after cvc, in case sb does not know what is it
 
 ### Useful resources
 
