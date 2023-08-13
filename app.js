@@ -175,9 +175,14 @@ form.addEventListener('submit', e => {
     validateInputs();
     
     if (nameV && numberV && monthV && yearV && cvcV) {
-        form.classList.add('d__none');
-        complete.classList.remove('d__none');
-        // complete.classList.add('d__block');
+
+        form.classList.add('d__none__animation');
+
+        form.addEventListener('animationend', e => {
+            form.classList.add('d__none');
+            complete.classList.remove('d__none');
+            complete.classList.add('d__block');
+        });
     }
 });
 

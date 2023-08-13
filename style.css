@@ -23,6 +23,7 @@ body {
     background: url(images/bg-main-mobile.png) no-repeat;
     background-size: 100%;
     background-size: 100% 24rem;
+    overflow-x: hidden;
 }
 
 main {
@@ -212,12 +213,18 @@ form {
     background-color: hsl(278, 68%, 11%, 80%);
 }
 
+.d__none__animation {
+    animation: slide 1s ease-in-out forwards;
+    animation-direction: reverse;
+}
+
 .d__none {
     display: none;
 }
 
 .d__block {
     display: block;
+    animation: slide 1s ease-in-out forwards;
 }
 
 .complete {
@@ -271,14 +278,27 @@ form {
     color:hsl(0, 100%, 66%);
 }
 
+@keyframes slide {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 @media (min-width: 1440px) {
     body {
         background: url(images/bg-main-desktop.png) no-repeat;
         background-size: 33.5% 100%;
+        overflow-x: hidden;
     }
 
     main {
-        max-width: 112rem;
+        max-width: 120rem;
         padding: 0;
         height: 100vh;
         display: flex;
@@ -336,7 +356,7 @@ form {
 
     form {
         padding: 2rem;
-        margin: 0;
+        margin-left: 0;
     }
 
     .form__group {
@@ -353,7 +373,6 @@ form {
 
     .complete {
         width: 40rem;
-        margin: 0;
     }
     
     .complete img {

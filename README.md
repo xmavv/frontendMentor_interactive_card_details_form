@@ -61,10 +61,12 @@ Users should be able to:
 - I added second version of back-card, just to increase contrast between background and text-cvc (in my opinion default color wasn't that good, feel free to use it!)
 - Success validation
 - An (i) icon, after cvc, in case sb does not know what is it
+- Animations after form being completed
 
 ### Useful resources
 
 - [res1](https://www.youtube.com/watch?v=VB8cil2gyQM&list=PLbKtKAjLO1qzoGxx8CbErG3mW9yI9sbgq&index=3&ab_channel=mrkhd-webDev) - helped me with CSS, and JS
+- [res2](https://www.youtube.com/watch?v=VdqtdKXxKhM&list=PLbKtKAjLO1qzoGxx8CbErG3mW9yI9sbgq&index=2&t=11s&ab_channel=Codehal) - helped me with animations
 
 ## Author
 
