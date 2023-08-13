@@ -6,7 +6,7 @@ This is a solution to the [Interactive card details form challenge on Frontend M
 
 - [Overview](#overview)
   - [The challenge](#the-challenge) 
-  - [Screenshot](#screenshot)
+  - [Preview video](#preview-wideo)
   - [Deploying project](#deploying-project)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -32,9 +32,10 @@ Users should be able to:
 - View the optimal layout depending on their device's screen size
 - See hover, active, and focus states for interactive elements on the page
 
-### Screenshot
+### Preview video
 
-![Screenshoot of the final app](images/Screenshot.png)
+https://github.com/xmavv/frontendMentor_interactive_card_details_form/assets/129995423/1b792c18-9e51-4dd6-b579-e4a3e08288c3
+
 
 ## My process
 
